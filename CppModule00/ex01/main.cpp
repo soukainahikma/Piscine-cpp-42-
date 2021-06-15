@@ -27,7 +27,7 @@ int	main()
 		{
 			if(i == 0)
 			{
-				std::cout << "\033[1m\033[31m>>>>>>> THE LIST OF YOUR CONTACT IS EMPTY <<<<<<<\033[1m\033[37m" << std::endl;
+				std::cout << "\033[1m\033[31m>>>>>>> THE LIST OF YOUR CONTACTS IS EMPTY <<<<<<<\033[1m\033[37m" << std::endl;
 				continue;
 			}
 			j=0;
@@ -39,9 +39,7 @@ int	main()
 			std::cout << "\033[1m\033[36mEnter the index :\033[1m\033[37m"<<std::endl;
 			index = check_line(index);
 			if (i != 0 && check_index(index) != 0 && stoi(index) < i + 1 && stoi(index) != 0)
-			{
 				info[stoi(index) - 1].secret();
-			}
 			else if (check_index(index) == 0 || stoi(index) >= i+ 1 || stoi(index) == 0)
 				std::cout << "\033[1m\033[31m>>>>>>> wrong index !! <<<<<<<\033[1m\033[37m" << std::endl;
 		}

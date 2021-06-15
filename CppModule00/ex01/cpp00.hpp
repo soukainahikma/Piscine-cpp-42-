@@ -1,9 +1,7 @@
 #ifndef CPP00_HPP
 # define CPP00_HPP
 #include <iostream>
-#include <string>
 #include <iomanip>
-#include <stdlib.h>
 
 class Myinformation {
 	private:

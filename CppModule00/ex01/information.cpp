@@ -65,42 +65,63 @@ std::string	ft_trunk(std::string str)
 	}
 	return (str);
 }
-     
+
 void	Myinformation::show_infos(int i)
 {
-
+	std::cout << "\033[1m\033[33m|";
 	std::cout << "\033[1m\033[33m" << std::setw(10) << "Index" ;
 	std::cout << "\033[1m\033[33m|";
 	std::cout << "\033[1m\033[33m" << std::setw(10) << "First_name";
 	std::cout  << "\033[1m\033[33m|";
 	std::cout<< "\033[1m\033[33m" << std::setw(10) << "Last_name";
 	std::cout << "\033[1m\033[33m|" ;
-	std::cout<< "\033[1m\033[33m" << std::setw(10) << "Nickname" << std::endl; 
-
-	// tab
+	std::cout<< "\033[1m\033[33m" << std::setw(10) << "Nickname";
+	std::cout << "\033[1m\033[33m|" << std::endl;
+	std::cout << "\033[1m\033[33m|";
 	std::cout << "\033[1m\033[34m"<< std::setw(10) << i + 1 ;
 	std::cout << "\033[1m\033[33m|";
 	std::cout << "\033[1m\033[32m" << std::setw(10) << ft_trunk(first_name);
 	std::cout  << "\033[1m\033[33m|";
 	std::cout<< "\033[1m\033[32m" << std::setw(10) << ft_trunk(last_name);
 	std::cout << "\033[1m\033[33m|" ;
-	std::cout<< "\033[1m\033[32m" << std::setw(10) << ft_trunk(nickname) << std::endl; 
+	std::cout<< "\033[1m\033[32m" << std::setw(10) << ft_trunk(nickname);
+	std::cout << "\033[1m\033[33m|" << std::endl; 
 }
+
+bool ft_isnumber(std::string s)
+{
+	size_t i;
+
+	i = 0;
+	while(i < s.length())
+	{
+		if (isdigit(s[i]) == false)
+			return (false);
+		i++;
+	}
+	return(true);
+	 
+}
+
 int	check_index(std::string str)
 {
-	const std::string WHITESPACE = " \n\r\t\f\v";
-	int start = str.find_first_not_of(WHITESPACE);
-	int end = str.find_last_not_of(WHITESPACE);
-	if(end != -1 && start != -1)
-	{
+	std::string WHITESPACE;
+	int start;
+	int end;
+
+ 	WHITESPACE = " \n\r\t\f\v";
+	start = str.find_first_not_of(WHITESPACE);
+	if(start != -1)
 		str = str.substr(start);
-		str = str.substr(end);
-	 	return str.find_first_not_of("0123456789") == std::string::npos;
-	}
+	end = str.find_last_not_of(WHITESPACE);
+	if(end != -1)
+		str = str.substr(0,end+1);
+	if(end != -1 && start != -1)
+		return(ft_isnumber(str));
 	return(0);
 }
 
-std::string check_line(std::string str)
+std::string	check_line(std::string str)
 {
 	if(!getline(std::cin, str))
 		exit(0);
