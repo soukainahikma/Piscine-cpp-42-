@@ -1,13 +1,9 @@
-NAME = phonebook
-SRC =	information.cpp\
-		main.cpp
+NAME = HI_THIS_IS_BRAIN
+SRC =	main.cpp\
 
-HEADERS = ./information.hpp
+all: $(NAME)
 
-
-all: $(NAME) $(HEADERS)
-
-$(NAME): $(SRC) $(HEADERS)
+$(NAME): $(SRC)
 	clang++ -Wall -Wextra -Werror -std=c++98 $(SRC) -o $(NAME)
 
 clean:

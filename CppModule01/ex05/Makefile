@@ -1,9 +1,8 @@
-NAME = phonebook
-SRC =	information.cpp\
-		main.cpp
+NAME = Karen
+SRC =	main.cpp\
+		Karen.cpp\
 
-HEADERS = ./information.hpp
-
+HEADERS = ./Karen.hpp
 
 all: $(NAME) $(HEADERS)
 

@@ -1,10 +1,10 @@
-NAME = phonebook
-SRC =	information.cpp\
-		main.cpp
+NAME = Unnecessary_violence
+SRC =	main.cpp\
+		Weapon.cpp\
+		HumanA.cpp\
+		HumanB.cpp\
 
-HEADERS = ./information.hpp
-
-
+HEADERS = ./HumanB.hpp ./HumanA.hpp ./Weapon.hpp
 all: $(NAME) $(HEADERS)
 
 $(NAME): $(SRC) $(HEADERS)

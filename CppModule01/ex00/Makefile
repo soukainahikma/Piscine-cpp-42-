@@ -1,10 +1,10 @@
-NAME = phonebook
-SRC =	information.cpp\
-		main.cpp
+NAME = BraiiiiiiinnnzzzZ
+SRC =	main.cpp\
+		randomChump.cpp\
+		Zombie.cpp\
+		newZombie.cpp\
 
-HEADERS = ./information.hpp
-
-
+HEADERS = ./Zombie.hpp
 all: $(NAME) $(HEADERS)
 
 $(NAME): $(SRC) $(HEADERS)

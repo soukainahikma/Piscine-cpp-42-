@@ -1,5 +1,5 @@
-#ifndef CPP00_HPP
-# define CPP00_HPP
+#ifndef INFORMATION_HPP
+# define INFORMATION_HPP
 #include <iostream>
 #include <iomanip>
 

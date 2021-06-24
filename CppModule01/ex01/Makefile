@@ -1,10 +1,9 @@
-NAME = phonebook
-SRC =	information.cpp\
-		main.cpp
+NAME = Moar_brainz
+SRC =	main.cpp\
+		Zombie.cpp\
+		ZombieHorde.cpp\
 
-HEADERS = ./information.hpp
-
-
+HEADERS = ./Zombie.hpp
 all: $(NAME) $(HEADERS)
 
 $(NAME): $(SRC) $(HEADERS)

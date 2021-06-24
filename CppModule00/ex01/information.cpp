@@ -1,4 +1,4 @@
-#include "cpp00.hpp"
+#include "information.hpp"
 
 Myinformation::Myinformation(void){
 	return;
