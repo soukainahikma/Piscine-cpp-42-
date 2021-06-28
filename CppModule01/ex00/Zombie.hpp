@@ -9,11 +9,7 @@ class Zombie{
 		void annonce();
 		Zombie();
 		Zombie(std::string);
-		~Zombie()
-		{
-			std::cout << "<" << _name << "> "<<"destructed\n";
-		}
-
+		~Zombie();
 };
 Zombie *newZombie(std::string name);
 void randomChump(std::string name);

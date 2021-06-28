@@ -25,17 +25,16 @@ void	Karen::complain( std::string level )
 {
 	std::string tab[4] ={"DEBUG","INFO","WARNING","ERROR"};
 	int i = 0;
-	while(i< 4)
+	while (i < 4)
 	{
 		if (level == tab[i])
-			break;
+			break ;
 		i++;
 	}
-	void (Karen::*a[])() = {&Karen::debug,
+	void (Karen::*a[])(void) = {&Karen::debug,
 							&Karen::info, 
 							&Karen::warning,
 							&Karen::error,
 							&Karen::notKarenLevel};
-	
 	(this->*(a[i]))();
 }

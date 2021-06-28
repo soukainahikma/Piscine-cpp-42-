@@ -1,4 +1,4 @@
-NAME = Karen
+NAME = Karen-filter
 SRC =	main.cpp\
 		Karen.cpp\
 

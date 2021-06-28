@@ -12,3 +12,7 @@ void Zombie::annonce()
 {
 	std::cout <<"<"<< _name << "> " << "Braiiiiiiinnnssss...\n";
 }
+Zombie::~Zombie()
+{
+	std::cout << "<" << _name << "> "<<"destructed\n";
+}
