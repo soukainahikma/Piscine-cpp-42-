@@ -28,7 +28,7 @@ bool	parsingChecker(std::ifstream &file,std::string fileName, std::string s1, st
 {
 	if (file.fail())
 	{
-		std::cout<<"\"" <<fileName <<"\""<<": THIS FILE DOES NOT EXIST !!"<< std::endl;
+		std::cout<<"\"" <<fileName <<"\""<<": ERROR IN FILE !!"<< std::endl;
 		return (false);
 	}
 	if (s1.empty() || s2.empty())

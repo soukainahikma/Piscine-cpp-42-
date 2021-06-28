@@ -2,15 +2,20 @@ NAME = Karen-filter
 SRC =	main.cpp\
 		Karen.cpp\
 
+OBJ = $(SRC:.cpp=.o)
+
 HEADERS = ./Karen.hpp
 
-all: $(NAME) $(HEADERS)
+all: $(NAME) $(OBJ)
 
-$(NAME): $(SRC) $(HEADERS)
-	clang++ -Wall -Wextra -Werror -std=c++98 $(SRC) -o $(NAME)
+$(NAME): $(OBJ)
+	clang++ -Wall -Wextra -Werror -std=c++98 $(OBJ) -o $(NAME)
+
+%.o: %.cpp $(HEADERS)
+	clang++ -Wall -Wextra -Werror -std=c++98 -o $@ -c $<
 
 clean:
-	@rm -f $(NAME)
+	@rm -f $(OBJ)
 
 fclean: clean
 	@rm -f $(NAME)

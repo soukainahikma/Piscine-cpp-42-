@@ -3,14 +3,20 @@ SRC =	main.cpp\
 		Zombie.cpp\
 		ZombieHorde.cpp\
 
-HEADERS = ./Zombie.hpp
-all: $(NAME) $(HEADERS)
+OBJ = $(SRC:.cpp=.o)
 
-$(NAME): $(SRC) $(HEADERS)
-	clang++ -Wall -Wextra -Werror -std=c++98 $(SRC) -o $(NAME)
+HEADERS = ./Zombie.hpp
+
+all: $(NAME) $(OBJ)
+
+$(NAME): $(OBJ)
+	clang++ -Wall -Wextra -Werror -std=c++98 $(OBJ) -o $(NAME)
+
+%.o: %.cpp $(HEADERS)
+	clang++ -Wall -Wextra -Werror -std=c++98 -o $@ -c $<
 
 clean:
-	@rm -f $(NAME)
+	@rm -f $(OBJ)
 
 fclean: clean
 	@rm -f $(NAME)

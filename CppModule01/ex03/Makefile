@@ -4,14 +4,19 @@ SRC =	main.cpp\
 		HumanA.cpp\
 		HumanB.cpp\
 
+OBJ = $(SRC:.cpp=.o)
 HEADERS = ./HumanB.hpp ./HumanA.hpp ./Weapon.hpp
-all: $(NAME) $(HEADERS)
 
-$(NAME): $(SRC) $(HEADERS)
-	clang++ -Wall -Wextra -Werror -std=c++98 $(SRC) -o $(NAME)
+all: $(NAME) $(OBJ)
+
+$(NAME): $(OBJ)
+	clang++ -Wall -Wextra -Werror -std=c++98 $(OBJ) -o $(NAME)
+
+%.o: %.cpp $(HEADERS)
+	clang++ -Wall -Wextra -Werror -std=c++98 -o $@ -c $<
 
 clean:
-	@rm -f $(NAME)
+	@rm -f $(OBJ)
 
 fclean: clean
 	@rm -f $(NAME)

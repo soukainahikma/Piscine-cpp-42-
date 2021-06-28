@@ -18,7 +18,7 @@ void	Karen::error( void )
 }
 void Karen::notKarenLevel(void)
 {
-	std::cout << "Not a KAREN level" << std::endl;
+	std::cout << "[ Probably complaining about insignificant problems ]"<< std::endl;
 }
 
 void	Karen::complain( std::string level )

@@ -1,13 +1,18 @@
 NAME = HI_THIS_IS_BRAIN
 SRC =	main.cpp\
 
-all: $(NAME)
+OBJ = $(SRC:.cpp=.o)
 
-$(NAME): $(SRC)
-	clang++ -Wall -Wextra -Werror -std=c++98 $(SRC) -o $(NAME)
+all: $(NAME) $(OBJ)
+
+$(NAME): $(OBJ)
+	clang++ -Wall -Wextra -Werror -std=c++98 $(OBJ) -o $(NAME)
+
+%.o: %.cpp $(HEADERS)
+	clang++ -Wall -Wextra -Werror -std=c++98 -o $@ -c $<
 
 clean:
-	@rm -f $(NAME)
+	@rm -f $(OBJ)
 
 fclean: clean
 	@rm -f $(NAME)
