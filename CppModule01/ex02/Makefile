@@ -8,7 +8,7 @@ all: $(NAME) $(OBJ)
 $(NAME): $(OBJ)
 	clang++ -Wall -Wextra -Werror -std=c++98 $(OBJ) -o $(NAME)
 
-%.o: %.cpp $(HEADERS)
+%.o: %.cpp
 	clang++ -Wall -Wextra -Werror -std=c++98 -o $@ -c $<
 
 clean:

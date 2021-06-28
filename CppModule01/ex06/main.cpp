@@ -10,5 +10,7 @@ int main(int argc, char **argv)
 		level = argv[1];
 		c.complain(level);
 	}
+	else
+		std::cout << "ARGUMENT ERROR !!"<< std::endl;
 	return (0);
 }
