@@ -10,32 +10,38 @@ void	Karen::info( void )
 }
 void	Karen::warning( void )
 {
-	std::cout << "I think I deserve to have some extra bacon for free. I’ve been coming here for years and you just started working here last month." << std::endl;
+	std::cout << "I think I deserve to have some extra bacon for free.\nI’ve been coming here for years and you just started working here last month." << std::endl;
 }
 void	Karen::error( void )
 {
 	std::cout << "This is unacceptable, I want to speak to the manager now." << std::endl;
-}
-void Karen::notKarenLevel(void)
-{
-	std::cout << "Not a KAREN level" << std::endl;
 }
 
 void	Karen::complain( std::string level )
 {
 	std::string tab[4] ={"DEBUG","INFO","WARNING","ERROR"};
 	int i = 0;
+	void (Karen::*a[])() = {&Karen::debug,
+							&Karen::info, 
+							&Karen::warning,
+							&Karen::error};
 	while(i< 4)
 	{
 		if (level == tab[i])
 			break;
 		i++;
 	}
-	void (Karen::*a[])() = {&Karen::debug,
-							&Karen::info, 
-							&Karen::warning,
-							&Karen::error,
-							&Karen::notKarenLevel};
-	
-	(this->*(a[i]))();
+	switch (i){
+		case 4:
+			std::cout << "[ Probably complaining about insignificant problems ]"<< std::endl;
+			return;
+	}
+	while (i < 4)
+	{
+		std::cout <<"[ "<< tab[i] <<" ]" <<std::endl;
+		(this->*(a[i]))();
+		std::cout <<std::endl;
+		i++;
+	}
+
 }

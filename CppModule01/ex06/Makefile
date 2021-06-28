@@ -1,9 +1,12 @@
-NAME = replace
+NAME = Karen
 SRC =	main.cpp\
+		Karen.cpp\
 
-all: $(NAME)
+HEADERS = ./Karen.hpp
 
-$(NAME): $(SRC)
+all: $(NAME) $(HEADERS)
+
+$(NAME): $(SRC) $(HEADERS)
 	clang++ -Wall -Wextra -Werror -std=c++98 $(SRC) -o $(NAME)
 
 clean:
