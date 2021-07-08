@@ -24,7 +24,7 @@ void	Karen::error( void )
 	std::cout << "This is unacceptable, I want to speak to the manager now." << std::endl << std::endl;
 }
 
-void	Karen::complain( std::string level )
+void	Karen::complain( std::string level)
 {
 	std::string tab[4] ={"DEBUG","INFO","WARNING","ERROR"};
 	int i = 0;

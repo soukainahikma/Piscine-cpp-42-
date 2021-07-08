@@ -59,4 +59,6 @@ int main(int argc, char **argv)
 		}
 		file.close();
 	}
+	else
+		std::cout << "ERROR ARGUMENT !!"<< std::endl;
 }
