@@ -4,10 +4,11 @@ SRC =	main.cpp\
 		ClapTrap.cpp\
 		ScavTrap.cpp\
 		FragTrap.cpp\
+		DiamondTrap.cpp\
 
 OBJ = $(SRC:.cpp=.o)
 
-HEADERS = ClapTrap.hpp ScavTrap.hpp FragTrap.hpp\
+HEADERS = ClapTrap.hpp ScavTrap.hpp FragTrap.hpp DiamondTrap.hpp 
 
 all: $(NAME) $(OBJ)
 
