@@ -21,7 +21,7 @@
 #define BOLDWHITE   "\033[1m\033[37m"      /* Bold White */
 
 class ClapTrap{
-	private:
+	protected:
 		std::string _name;
 		int hitpoints;
 		int energyPoints;
@@ -30,8 +30,10 @@ class ClapTrap{
 		void attack(std::string const & target);
 		void takeDamage(unsigned int amount);
 		void beRepaired(unsigned int amount);
+		ClapTrap();
 		ClapTrap(std::string name);
 		~ClapTrap();
 };
-void gunPrinter();
+
+void gunPrinter(std::string name);
 #endif
