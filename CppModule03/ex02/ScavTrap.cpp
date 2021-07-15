@@ -5,21 +5,7 @@ ScavTrap::ScavTrap()
 
 }
 
-ScavTrap::~ScavTrap()
-{
-		std::cout<< BOLDBLUE<< "--------------------------------------------------------------------------------"<<std::endl;
-	std::cout<<"|" << BOLDRED<< "                         ScarvTrap Object destroyed!! "<<BOLDBLUE << "                        |"<< std::endl;
-	std::cout<< BOLDBLUE<< "--------------------------------------------------------------------------------"<<std::endl;
 
-}
-void ScavTrap::attack(std::string const & target)
-{
-		this->hitpoints--;
-		this->attackDamage = attackDamage + 5;
-		this->energyPoints = energyPoints - 5;
-		gunPrinter(BLUE"ScavTrap"WHITE);
-		std::cout << BOLDBLACK << "ScavTrap <"<< RED <<_name << BOLDBLACK <<"> attacks <" << RED << target << BOLDBLACK <<"> , causing <  "<< RED<< attackDamage << BOLDBLACK <<"  > points of damage!"<< RESET<<std::endl;
-}
 
 ScavTrap::ScavTrap(std::string name)
 {
@@ -40,6 +26,33 @@ ScavTrap::ScavTrap(std::string name)
 	std::cout << std::endl;
 	std::cout << std::endl;
 }
+
+ScavTrap::~ScavTrap()
+{
+		std::cout<< BOLDBLUE<< "--------------------------------------------------------------------------------"<<std::endl;
+	std::cout<<"|" << BOLDRED<< "                         ScarvTrap has been destructed !!  "<<BOLDBLUE << "                   |"<< std::endl;
+	std::cout<< BOLDBLUE<< "--------------------------------------------------------------------------------"<<std::endl;
+
+}
+
+ScavTrap &ScavTrap::operator = (const ScavTrap &ScavObj)
+{
+	
+	_name = ScavObj._name;
+	hitpoints = ScavObj.hitpoints;
+	energyPoints = ScavObj.energyPoints;
+	attackDamage = ScavObj.attackDamage;
+
+	return(*this);
+}
+
+void ScavTrap::attack(std::string const & target)
+{
+		gunPrinter(BLUE"ScavTrap"WHITE);
+		std::cout << BOLDBLACK << "ScavTrap <"<< RED <<_name << BOLDBLACK <<"> attacks <" << RED << target << BOLDBLACK <<"> , causing <  "<< RED<< attackDamage << BOLDBLACK <<"  > points of damage!"<< RESET<<std::endl;
+}
+
+
 void ScavTrap::guardGate()
 {
 	std::cout << std::endl;

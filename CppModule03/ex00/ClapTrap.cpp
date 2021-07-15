@@ -1,20 +1,8 @@
 #include "ClapTrap.hpp"
 
-void ClapTrap::attack(std::string const & target)
+ClapTrap::ClapTrap()
 {
-		this->hitpoints--;
-		this->attackDamage = attackDamage + 5;
-		this->energyPoints = energyPoints - 5;
-		gunPrinter();
-		std::cout << BOLDBLACK << "ClapTrap <"<< RED <<_name << BOLDBLACK <<"> attacks <" << RED << target << BOLDBLACK <<"> , causing <  "<< RED<< attackDamage << BOLDBLACK <<"  > points of damage!"<< RESET<<std::endl;
-}
-void ClapTrap::takeDamage(unsigned int amount)
-{
-		std::cout << BOLDBLACK <<"Energy amount after the dammage < "<< RED << amount << BOLDBLACK <<" >"<< std::endl;
-}
-void ClapTrap::beRepaired(unsigned int amount)
-{
-	std::cout <<  BOLDBLACK <<"Repair with an amount of < " << RED << amount << BOLDBLACK <<" >"<< std::endl;
+	return;
 }
 
 ClapTrap::ClapTrap(std::string name)
@@ -36,9 +24,49 @@ ClapTrap::ClapTrap(std::string name)
 	std::cout << std::endl;
 	std::cout << std::endl;
 }
+
 ClapTrap::~ClapTrap()
 {
 	std::cout<< BOLDGREEN<< "--------------------------------------------------------------------------------"<<std::endl;
 	std::cout<<"|" << BOLDRED<< "                         ClapTrap has been destructed !! "<<BOLDGREEN << "                     |"<< std::endl;
 	std::cout<< BOLDGREEN<< "--------------------------------------------------------------------------------"<<std::endl;
 }
+
+ClapTrap &ClapTrap::operator = (const ClapTrap &ClapObj)
+{
+	
+	_name = ClapObj._name;
+	hitpoints = ClapObj.hitpoints;
+	energyPoints = ClapObj.energyPoints;
+	attackDamage = ClapObj.attackDamage;
+
+	return(*this);
+}
+
+void ClapTrap::attack(std::string const & target)
+{
+		this->hitpoints--;
+		this->attackDamage = attackDamage + 5;
+		this->energyPoints = energyPoints - 5;
+		gunPrinter();
+		std::cout << BOLDBLACK << "ClapTrap <"<< RED <<_name << BOLDBLACK <<"> attacks <" << RED << target << BOLDBLACK <<"> , causing <  "<< RED<< attackDamage << BOLDBLACK <<"  > points of damage!"<< RESET<<std::endl;
+}
+
+void ClapTrap::takeDamage(unsigned int amount)
+{
+		std::cout << BOLDBLACK <<"Energy amount after the dammage < "<< RED << amount << BOLDBLACK <<" >"<< std::endl;
+}
+
+void ClapTrap::beRepaired(unsigned int amount)
+{
+	std::cout <<  BOLDBLACK <<"Repair with an amount of < " << RED << amount << BOLDBLACK <<" >"<< std::endl;
+}
+
+void gunPrinter()
+{
+	std::cout << BOLDYELLOW << "                             \\\\___________n_   ___"<< std::endl;
+	std::cout << BOLDYELLOW << "             ClapTrap       /     __________| |___)   BANG!!!!"<< std::endl;
+	std::cout << BOLDYELLOW << "             ATTACK!!     /     /=/"<< std::endl;
+	std::cout << BOLDYELLOW << "                        /_____/"<< std::endl;
+}
+

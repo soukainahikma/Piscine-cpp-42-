@@ -2,12 +2,13 @@
 #define SCAVTRAP_HPP
 #include <iostream>
 #include "ClapTrap.hpp"
-class ScavTrap:public ClapTrap
+class ScavTrap:virtual public ClapTrap
 {
 	public:
 		ScavTrap();
-		ScavTrap(std::string name);
+		ScavTrap(std::string name);//make sure the copy constructor in right
 		~ScavTrap();
+		ScavTrap & operator = (const ScavTrap &ScavObj);
 		void guardGate();
 		void attack(std::string const & target);
 };

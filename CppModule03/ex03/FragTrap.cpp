@@ -2,23 +2,6 @@
 
 FragTrap::FragTrap()
 {
-
-}
-
-FragTrap::~FragTrap()
-{
-		std::cout<< MAGENTA<< "--------------------------------------------------------------------------------"<<std::endl;
-	std::cout<<"|" << BOLDRED<< "                         FragTrap Object destroyed!! "<<MAGENTA << "                        |"<< std::endl;
-	std::cout<< MAGENTA<< "--------------------------------------------------------------------------------"<<std::endl;
-
-}
-void FragTrap::attack(std::string const & target)
-{
-		this->hitpoints--;
-		this->attackDamage = attackDamage + 5;
-		this->energyPoints = energyPoints - 5;
-		gunPrinter(MAGENTA"FragTrap"WHITE);
-		std::cout << BOLDBLACK << "FragTrap <"<< RED <<_name << BOLDBLACK <<"> attacks <" << RED << target << BOLDBLACK <<"> , causing <  "<< RED<< attackDamage << BOLDBLACK <<"  > points of damage!"<< RESET<<std::endl;
 }
 
 FragTrap::FragTrap(std::string name)
@@ -39,6 +22,24 @@ FragTrap::FragTrap(std::string name)
 	std::cout << MAGENTA << "              |        `---'  '---`                |         "<< RESET<< std::endl;
 	std::cout << std::endl;
 	std::cout << std::endl;
+}
+
+FragTrap::~FragTrap()
+{
+		std::cout<< MAGENTA<< "--------------------------------------------------------------------------------"<<std::endl;
+	std::cout<<"|" << BOLDRED<< "                         FragTrap Object destroyed!! "<<MAGENTA << "                         |"<< std::endl;
+	std::cout<< MAGENTA<< "--------------------------------------------------------------------------------"<<std::endl;
+
+}
+FragTrap &FragTrap::operator = (const FragTrap &FragObj)
+{
+	
+	_name = FragObj._name;
+	hitpoints = FragObj.hitpoints;
+	energyPoints = FragObj.energyPoints;
+	attackDamage = FragObj.attackDamage;
+
+	return(*this);
 }
 void FragTrap::highFivesGuys()
 {
