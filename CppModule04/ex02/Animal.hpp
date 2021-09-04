@@ -10,6 +10,7 @@ class Animal{
 		virtual ~Animal();                            //destructor
 		Animal & operator = (const Animal &a);//assignation operator
 		std::string const getType()const;              //getter
-		virtual void makeSound()const ;
+		virtual void makeSound()const = 0; // made the class abstract by making this class pure virtual function
+		// should i keep the definition of the abstract class in the cpp file 
 };
 #endif

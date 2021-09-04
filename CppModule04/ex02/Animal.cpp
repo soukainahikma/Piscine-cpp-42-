@@ -23,8 +23,3 @@ std::string const Animal::getType() const
 {
     return(type);
 }
-
-void  Animal::makeSound() const
-{
-    std::cout << "I am an animal .... "<< std::endl;
-}
