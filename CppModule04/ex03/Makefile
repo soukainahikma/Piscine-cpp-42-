@@ -1,13 +1,19 @@
 NAME = a.out
 
 SRC =	AMateria.cpp\
-		Materia.cpp\
+		Ice.cpp\
+		Cure.cpp\
+		Character.cpp\
 		main.cpp\
 
 OBJ = $(SRC:.cpp=.o)
 
 HEADERS =	AMateria.hpp\
-			Materia.hpp\
+			Ice.hpp\
+			Cure.hpp\
+			ICharacter.hpp\
+			Character.hpp\
+		
 
 all: $(NAME) $(OBJ)
 

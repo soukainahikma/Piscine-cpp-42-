@@ -65,6 +65,7 @@
         "memory_resource": "cpp",
         "*.tcc": "cpp",
         "clocale": "cpp",
-        "deque": "cpp"
+        "deque": "cpp",
+        "__functional_base_03": "cpp"
     }
 }
