@@ -10,6 +10,7 @@ Character::Character()
 Character::Character(const Character &a)
 {
     Name = a.Name;
+	index = a.index;
     std::cout<<"Copy constructor called"<< std::endl;
 }
 

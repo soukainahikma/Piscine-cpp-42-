@@ -4,6 +4,7 @@ SRC =	AMateria.cpp\
 		Ice.cpp\
 		Cure.cpp\
 		Character.cpp\
+		MateriaSource.cpp\
 		main.cpp\
 
 OBJ = $(SRC:.cpp=.o)
@@ -13,6 +14,8 @@ HEADERS =	AMateria.hpp\
 			Cure.hpp\
 			ICharacter.hpp\
 			Character.hpp\
+			IMateriaSource.hpp\
+			MateriaSource.hpp\
 		
 
 all: $(NAME) $(OBJ)

@@ -5,6 +5,9 @@
 
 class MateriaSource:virtual public IMateriaSource
 {
+	private:
+		AMateria *source[4];
+		int index;
 	public:
 	    MateriaSource();                             //Default constructor
     	MateriaSource(const MateriaSource &ortho);          //copy constructor
