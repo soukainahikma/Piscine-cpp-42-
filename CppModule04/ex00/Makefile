@@ -2,14 +2,18 @@ NAME = a.out
 
 SRC =	main.cpp\
 		Animal.cpp\
+		WrongAnimal.cpp\
+		WrongCat.cpp\
 		Cat.cpp\
 		Dog.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
-HEADERS = Animal.hpp\
+HEADERS =	Animal.hpp\
+			WrongAnimal.hpp\
 			Dog.hpp\
 			Cat.hpp\
+			WrongCat.hpp\
 
 all: $(NAME) $(OBJ)
 

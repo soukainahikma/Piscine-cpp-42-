@@ -2,13 +2,12 @@
 #define BRAIN_HPP
 #include <iostream>
 class Brain{
-	protected:
-		std::string ideas[100]; // make sure this one is right
+	private:
+		std::string ideas[100];
 	public:
-		Brain();                  
+		Brain();
 		Brain(const Brain &ortho);
-		virtual ~Brain();
+		~Brain();
 		Brain & operator = (const Brain &a);
-		
 };
 #endif

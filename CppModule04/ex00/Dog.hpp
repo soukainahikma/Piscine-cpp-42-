@@ -2,14 +2,14 @@
 #define DOG_HPP
 #include <iostream>
 #include "Animal.hpp"
-class Dog: virtual public Animal
+class Dog:	public	Animal
 {
 	public:
-		Dog();                             //Default constructor
-		Dog(const Dog &ortho);          //copy constructor
-		virtual ~Dog();                            //destructor
-		Dog & operator = (const Dog &a);//assignation operator
-		std::string const getType()const;                //getter
+		Dog();
+		Dog(const Dog &ortho);
+		virtual ~Dog();
+		Dog & operator = (const Dog &a);
+		std::string const getType()const;
 		virtual void  makeSound() const;
 };
 #endif

@@ -2,24 +2,22 @@
 
 Brain::Brain()
 {
-    std::cout << "Brain class constructed" << std::endl;
+	std::cout << "Brain class constructed" << std::endl;
 }
 
 Brain::Brain(const Brain &a)
 {
-    std::cout<<"Copy constructor called"<< std::endl;
-    for (size_t i = 0; i < 100; i++)
-        ideas[i] = a.ideas[i];
+	std::cout<<"Copy constructor called"<< std::endl;
+	*this = a;
 }
 Brain::~Brain()
 {
-    std::cout << "Brain class destructed" << std::endl;
+	std::cout << "Brain class destructed" << std::endl;
 }
 
 Brain & Brain::operator = (const Brain &a)
 {
-    for (size_t i = 0; i < 100; i++)
-        ideas[i] = a.ideas[i]; //review later 
-    return(*this);
+	for (size_t i = 0; i < 100; i++)
+		ideas[i] = a.ideas[i];
+	return(*this);
 }
-

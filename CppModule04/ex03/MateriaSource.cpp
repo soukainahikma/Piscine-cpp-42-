@@ -4,40 +4,47 @@
 
 MateriaSource::MateriaSource()
 {
-    index=0;
-    std::cout << "MateriaSource class constructed" << std::endl;
+	index=0;
 }
 
 MateriaSource::MateriaSource(const MateriaSource &a)
 {
-    index = a.index;
-    std::cout<<"Copy constructor called"<< std::endl;
+	*this = a;
 }
 
 
 MateriaSource::~MateriaSource()
 {
-    std::cout << "MateriaSource class destructed" << std::endl;
-}
-MateriaSource & MateriaSource::operator = (const MateriaSource &a)
-{
-    // assignation needed
-    index = a.index;
-    return(*this);
+	for (int i = 0; i < index; i++)
+	{
+		delete source[i];
+	}
 }
 
-void MateriaSource::learnMateria(AMateria* m)// i added the name of the variable
+MateriaSource & MateriaSource::operator = (const MateriaSource &a)
 {
-    if( index <=3 && index >= 0)
-		source[index++] = m;
+	index = a.index;
+	for (size_t i = 0; i < 4; i++)
+	{
+		this->source[i] = a.source[i]->clone();
+	}
+	return(*this);
 }
+
+void MateriaSource::learnMateria(AMateria* m)
+{
+	if( index <=3 && index >= 0)
+	{
+		source[index++] = m;
+	}
+}
+
 AMateria* MateriaSource::createMateria(std::string const & type)
 {
-    if ( type == "ice")
-        source[index - 1] = new Ice(type); 
-    else if (type == "cure")
-        source[index - 1] = new Cure(type); 
-    else
-        return(NULL);
-    return( source[index-1]);
+	for (size_t i = 0; i < 4; i++)
+	{
+		if ( source[i]->getType() == type)
+			return(source[i]->clone()); 
+	}
+		return(NULL);
 }

@@ -2,21 +2,21 @@
 #define AMATERIA_HPP
 #include <iostream>
 #include "ICharacter.hpp"
+
 class AMateria
 {
-protected:
-    std::string type; // check if it s right
-public:
-     AMateria();                             //Default constructor
-    AMateria(const AMateria &ortho);          //copy constructor
-    virtual ~AMateria();                            //destructor
-    AMateria & operator = (const AMateria &a);//assignation operator
-    AMateria(std::string const & type);
+	protected:
+		std::string type;
+	public:
+		AMateria();
+		AMateria(const AMateria &ortho);
+		virtual ~AMateria();
+		AMateria & operator = (const AMateria &a);
+		AMateria(std::string const & type);
 
-    // [...] (mean canonical class)
-    std::string const & getType() const; //Returns the materia type
-    virtual AMateria* clone() const = 0;
-    virtual void use(ICharacter& target) = 0;
-};
+		std::string const & getType() const;
+		virtual AMateria* clone() const = 0;
+		virtual void use(ICharacter& target) = 0;
+	};
 
 #endif

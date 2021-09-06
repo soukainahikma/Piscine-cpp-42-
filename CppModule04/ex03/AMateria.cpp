@@ -1,32 +1,26 @@
 #include "AMateria.hpp"
 
-AMateria::AMateria()
-{
-    type = "AMateria";
-    std::cout << "AMateria class constructed" << std::endl;
-}
+AMateria::AMateria(){}
 
 AMateria::AMateria(const AMateria &a)
 {
-    type = a.type;
-    std::cout<<"Copy constructor called"<< std::endl;
+	*this = a;
 }
 
 AMateria::AMateria(std::string const & type)
 {
-    this->type = type;// make sure it s right
+	this->type = type;
 }
 
-AMateria::~AMateria()
-{
-    std::cout << "AMateria class destructed" << std::endl;
-}
+AMateria::~AMateria(){}
+
 AMateria & AMateria::operator = (const AMateria &a)
 {
-    type = a.type;
-    return(*this);
+	type = a.type;
+	return(*this);
 }
+
 std::string const & AMateria::getType()const
 {
-    return(type);
+	return(type);
 }

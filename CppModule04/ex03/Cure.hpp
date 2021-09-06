@@ -2,18 +2,16 @@
 #define CURE_HPP
 #include"AMateria.hpp"
 #include <iostream>
-class Cure:virtual public AMateria
+class Cure: public AMateria
 {
-public:
-    // Cure(std::string const & type);
-    Cure();                             //Default constructor
-    Cure(const Cure &ortho);          //copy constructor
-    ~Cure();                            //destructor
-    Cure & operator = (const Cure &a);//assignation operator
-    Cure(std::string const & type);
-    // std::string const & getType() const; //Returns the materia type
-    virtual AMateria* clone() const;
-    virtual void use(ICharacter& target);
+	public:
+		Cure();
+		Cure(const Cure &ortho);
+		~Cure();
+		Cure & operator = (const Cure &a);
+		Cure(std::string const & type);
+		virtual AMateria* clone() const;
+		virtual void use(ICharacter& target);
 };
 
 #endif

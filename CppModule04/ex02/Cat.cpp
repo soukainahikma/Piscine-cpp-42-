@@ -3,40 +3,42 @@
 
 Cat::Cat()
 {
-    brain = new Brain();
-    type = "Cat";
-    std::cout << "Cat class constructed" << std::endl;
+	brain = new Brain();
+	type = "Cat";
+	std::cout << "Cat class constructed" << std::endl;
 }
 
 Cat::Cat(const Cat &a)
 {
-    brain = new Brain();
-    *brain = *a.brain; // make sure its right
-    type = a.type;
-    std::cout << "deep copy of the cat is done !! " << std::endl;
-    std::cout<<"Copy constructor called"<< std::endl;
+	*this = a;
+	std::cout << "deep copy of the cat is done !! " << std::endl;
+	std::cout<<"Copy constructor called"<< std::endl;
 }
 
 Cat::~Cat()
 {
-    delete brain;
-    std::cout << "deep copy brain of the cat is destructed" << std::endl;
-    std::cout << "Cat class destructed" << std::endl;
+	delete brain;
+	std::cout << "deep copy brain of the cat is destructed" << std::endl;
+	std::cout << "Cat class destructed" << std::endl;
 }
+
 Cat & Cat::operator = (const Cat &a)
 {
-    type = a.type;
-    return(*this);
+   brain = new Brain ();
+	type = a.type;
+	*brain = *a.brain;
+	return(*this);
 }
 std::string const Cat::getType()const
 {
-    return(type);
+	return(type);
 }
-void  Cat::makeSound()const
+void Cat::makeSound()const
 {
-    std::cout << "MEWWWWWWWWW...."<< std::endl;
+	std::cout << "MEWWWWWWWWW...."<< std::endl;
 }
+
 Brain *Cat::getBrain(void)
 {
-    return(brain);
+	return(brain);
 }

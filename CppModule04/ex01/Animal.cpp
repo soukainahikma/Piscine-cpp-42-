@@ -2,29 +2,29 @@
 
 Animal::Animal()
 {
-std::cout << "Animal class constructed" << std::endl;
+	std::cout << "Animal class constructed" << std::endl;
 
 }
 Animal::Animal(const Animal &a)
 {
-std::cout<<"Copy constructor called"<< std::endl;
 	*this = a;
+	std::cout<<"Copy constructor called"<< std::endl;
 }
 Animal::~Animal()
 {
-std::cout << "Animal class destructed" << std::endl;
+	std::cout << "Animal class destructed" << std::endl;
 }
 Animal & Animal::operator = (const Animal &a)
 {
-    type = a.type;
-    return(*this);
+	type = a.type;
+	return(*this);
 }
 std::string const Animal::getType() const
 {
-    return(type);
+	return(type);
 }
 
-void  Animal::makeSound() const
+void Animal::makeSound() const
 {
-    std::cout << "I am an animal .... "<< std::endl;
+	std::cout << "I am an animal .... "<< std::endl;
 }

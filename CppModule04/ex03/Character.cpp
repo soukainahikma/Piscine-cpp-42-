@@ -3,40 +3,51 @@
 Character::Character()
 {
 	index = 0;
-    Name = "Character";
-    std::cout << "Character class constructed" << std::endl;
+	for (size_t i = 0; i < 4; i++)
+	{
+		this->inventory[i] = nullptr;
+	}
 }
 
 Character::Character(const Character &a)
 {
-    Name = a.Name;
-	index = a.index;
-    std::cout<<"Copy constructor called"<< std::endl;
+	*this = a;
 }
-
 
 Character::~Character()
 {
-    std::cout << "Character class destructed" << std::endl;
+	for (int i = 0; i < index; i++)
+	{
+		delete inventory[i];
+	}
 }
 Character & Character::operator = (const Character &a)
 {
-    Name = a.Name;
-    return(*this);
+	Name = a.Name;
+	index = a.index;
+	for (size_t i = 0; i < 4; i++)
+	{
+		this->inventory[i] = a.inventory[i]->clone();
+	}
+	return(*this);
 }
 
 Character::Character(std::string const & name)
 {
 	this->Name = name;
 }
+
 std::string const & Character::getName() const
 {
 	return(Name);
 }
+
 void Character::equip(AMateria* m)
 {
-	if( index <=3 && index >= 0)
+	if( index <= 3 && index >= 0)
+	{
 		inventory[index++] = m;
+	}
 }
 void Character::unequip(int idx)
 {
@@ -47,8 +58,6 @@ void Character::unequip(int idx)
 		inventory[idx] = inventory[idx + 1];
 		idx ++;
 	}
-	std::cout<< "testing unequip" << idx << std::endl;
-
 }
 void Character::use(int idx, ICharacter& target)
 {

@@ -10,9 +10,7 @@ Dog::Dog()
 }
 Dog::Dog(const Dog &a)
 {
-	brain = new Brain ();
-	type = a.type;
-	*brain = *a.brain; 
+	*this = a;
 	std::cout<<"Deep Copy of the dog constructed"<< std::endl;
 	std::cout<<"Copy constructor called"<< std::endl;
 }
@@ -24,7 +22,9 @@ Dog::~Dog()
 }
 Dog & Dog::operator = (const Dog &a)
 {
+	brain = new Brain ();
 	type = a.type;
+	*brain = *a.brain; 
 	return(*this);
 }
 std::string const Dog::getType()const
@@ -38,5 +38,5 @@ void Dog::makeSound() const
 }
 Brain *Dog::getBrain(void)
 {
-    return(brain);
+	return(brain);
 }

@@ -2,39 +2,36 @@
 
 Cure::Cure()
 {
-    type = "Cure";
-    std::cout << "Cure class constructed" << std::endl;
+	type = "cure";
 }
 
 Cure::Cure(const Cure &a)
 {
-    type = a.type;
-    std::cout<<"Copy constructor called"<< std::endl;
+	*this = a;
 }
 
+Cure::~Cure(){}
 
-Cure::~Cure()
-{
-    std::cout << "Cure class destructed" << std::endl;
-}
 Cure & Cure::operator = (const Cure &a)
 {
-    type = a.type;
-    return(*this);
+	type = a.type;
+	return(*this);
 }
+
 Cure::Cure(std::string const & type)
 {
-    this->type = type;// make sure it s right
+	this->type = type;
 }
 
 AMateria * Cure::clone()const
 {
-    AMateria *cure;
-    cure = new Cure();
-    return (cure);
+	AMateria *cure;
+	cure = new Cure();
+	return (cure);
 }
 
 void Cure::use(ICharacter &target)
 {
-    std::cout << "* heals "<< target.getName() <<"’s wounds *"<< std::endl;
+
+	std::cout << "* heals "<< target.getName() <<"’s wounds *"<< std::endl;
 }

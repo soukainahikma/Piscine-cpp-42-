@@ -3,29 +3,33 @@
 
 Cat::Cat()
 {
-    type = "Cat";
-std::cout << "Cat class constructed" << std::endl;
+	type = "Cat";
+	std::cout << "Cat class constructed" << std::endl;
 
 }
+
 Cat::Cat(const Cat &a)
 {
-std::cout<<"Copy constructor called"<< std::endl;
 	*this = a;
+	std::cout<<"Copy constructor called"<< std::endl;
 }
+
 Cat::~Cat()
 {
-std::cout << "Cat class destructed" << std::endl;
+	std::cout << "Cat class destructed" << std::endl;
 }
+
 Cat & Cat::operator = (const Cat &a)
 {
-    type = a.type;
-    return(*this);
+	type = a.type;
+	return(*this);
 }
 std::string const Cat::getType()const
 {
-    return(type);
+	return(type);
 }
-void  Cat::makeSound()const
+
+void Cat::makeSound()const
 {
-    std::cout << "MEWWWWWWWWW...."<< std::endl;
+	std::cout << "MEWWWWWWWWW...."<< std::endl;
 }
