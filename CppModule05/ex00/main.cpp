@@ -1,23 +1,10 @@
 #include <iostream>
 #include <exception>
-using namespace std;
+#include "Bureaucrat.hpp"
 
-class myexception: public exception
+int main()
 {
-  virtual const char* what() const throw()
-  {
-    return "My exception happened";
-  }
-} myex;
-
-int main () {
-  try
-  {
-    throw myex;
-  }
-  catch (exception& e)
-  {
-    cout << e.what() << '\n';
-  }
-  return 0;
+	Bureaucrat b("bob", 2);
+	b.increment();
+	std::cout << b.getGrade() << std::endl;
 }

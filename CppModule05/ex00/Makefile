@@ -2,7 +2,6 @@ NAME = a.out
 
 SRC =	main.cpp\
 		Bureaucrat.cpp\
-		main.cpp\
 		
 
 OBJ = $(SRC:.cpp=.o)
