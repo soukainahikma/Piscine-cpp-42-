@@ -1,6 +1,6 @@
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat()
+Bureaucrat::Bureaucrat(): _name("Bureaucrat"), _grade(150)
 {
 	std::cout << "**** This is the DEFAULT CONSTRUCTOR ****" << std::endl;
 }
@@ -18,14 +18,18 @@ Bureaucrat::~Bureaucrat()
 
 Bureaucrat & Bureaucrat::operator = (const Bureaucrat &brc)
 {
-	_name = brc._name;
+	
 	_grade = brc._grade;
 	return(*this);
 }
-Bureaucrat::Bureaucrat(const std::string name , const int grade)
+Bureaucrat::Bureaucrat(const std::string name , const int grade): _name(name)
 {
-	_grade = grade;
-	_name = name;
+	if (grade < 1)
+		throw Bureaucrat::GradeTooHighException();
+	else if (grade > 150)
+		throw Bureaucrat::GradeTooLowException();
+	else
+		this->_grade = grade;
 }
 int Bureaucrat::getGrade() const
 {
@@ -73,25 +77,27 @@ const char *Bureaucrat::GradeTooHighException::what () const throw ()
 
 void Bureaucrat::signForm(Form &form)
 {
-	try{
-		form.beSigned(*this);
-		std::cout <<"<"<< this->_name << "> signs <" << form.getName() <<">" << std::endl ;
+ 	if (this->_grade <= form.getGradeSign()){
+		std::cout << this->_name << " signs " << form.getName() << std::endl;
+		form.setSigned(true);
 	}
-	catch(std::exception e)
-	{
-		std::cout <<"<"<< this->_name << "> cannot sign <" << form.getName() <<"> because <" << e.what() << ">" << std::endl ;
-	}
+	else
+		std::cout << this->_name << " cannot sign because " << form.getName() << " need to be grade " << form.getGradeSign() << std::endl;
+	return ;
+
 }
 
 void Bureaucrat::executeForm(Form const & form)
 {
-	try{
-		form.execute(*this);
-		std::cout << "<" << this->_name << "> executes <"<< form.getName() << ">" << std::endl;
-	}
-	catch(std::exception e)
+	if (_grade <= form.getGradeExec())
 	{
-		std::cout << "Error in the execution" << std::endl;
+		std::cout << "Bureaucrat " << this->_name << " executes " << form.getName() << std::endl;
+		form.execute(*this);
+	}
+	else
+	{
+		std::cout << "Bureaucrat " << this->_name << " grade is too low (" << this->_grade << "). They need a grade of "
+			<< form.getGradeExec() << " to execute " << form.getName() << std::endl;
 	}
 
 }

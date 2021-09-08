@@ -24,5 +24,8 @@ PresidentialPardonForm & PresidentialPardonForm::operator = (const PresidentialP
 
 void PresidentialPardonForm::action()const
 {
-	std::cout << "<"<< _target << "> has been pardoned by Zafod Beeblebrox." <<std::endl;
+	std::cout << "<"<< this->getName() << "> has been pardoned by Zafod Beeblebrox." <<std::endl;
 }
+PresidentialPardonForm::PresidentialPardonForm(std::string target): Form(target, 25, 5){}
+
+// add operator << ??

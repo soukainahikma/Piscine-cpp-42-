@@ -10,7 +10,7 @@ class PresidentialPardonForm:public Form
 		~PresidentialPardonForm();
 		PresidentialPardonForm & operator = (const PresidentialPardonForm &PresidentialPardonForm);
 		virtual void action()const;
-
+		PresidentialPardonForm(std::string target);
 		//Action: Tells us <target> has been pardoned by Zafod Beeblebrox.
 };
 #endif

@@ -23,6 +23,7 @@ class Form
 		int getGradeExec() const;
 		bool getIsSigned() const;
 		void beSigned(Bureaucrat &brc);
+		void setSigned(bool isSigned);
 		
 		class GradeTooLowException : public std::exception
 		 {

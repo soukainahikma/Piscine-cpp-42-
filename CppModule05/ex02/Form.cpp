@@ -1,6 +1,6 @@
 #include "Form.hpp"
 
-Form::Form():_name("name"), _gradeSign(0), _gradeExec(0)
+Form::Form():_name("name"), _gradeSign(150), _gradeExec(150)
 {
 	std::cout << "**** This is the DEFAULT CONSTRUCTOR ****" << std::endl;
 }
@@ -47,6 +47,11 @@ bool Form::getIsSigned() const
 	return (_isSigned);
 }
 
+void Form::setSigned(bool isSigned)
+{
+	this->_isSigned = isSigned;
+}
+
 const char *Form::GradeTooLowException::what() const throw ()
 {
 	return "Grade Too Low Exception";
@@ -74,6 +79,7 @@ void Form::beSigned(Bureaucrat &brc)
 		throw Form::GradeTooLowException();
 	else
 		_isSigned = true;
+	//is already signed exception
 }
 
 void Form::setTarget(const std::string &target)
@@ -84,9 +90,13 @@ void Form::setTarget(const std::string &target)
 void Form::execute(Bureaucrat const & executor) const
 {
 	// check besigned
-		if(_isSigned == false)
-			std::cout << " " << std::endl;
-		else if (executor.getGrade() < _gradeSign)
-			std::cout << "WHAT TO DO HERE " << std::endl;
+		if(_isSigned == false){
+			std::cout << "Form " << this->getName() <<" not signed" << std::endl;
+		return;}
+		if (executor.getGrade() > _gradeExec)
+		{
+			throw Form::GradeTooHighException();
+			return;
+		}
 		this->action();
 }
