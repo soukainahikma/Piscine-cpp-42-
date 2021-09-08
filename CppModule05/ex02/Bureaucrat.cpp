@@ -70,3 +70,15 @@ const char *Bureaucrat::GradeTooHighException::what () const throw ()
 {
 	return "Grade Too High Exception";
 }
+
+void Bureaucrat::signForm(Form &form)
+{
+	try{
+		form.beSigned(*this);
+		std::cout <<"<"<< this->_name << "> signs <" << form.getName() <<">" << std::endl ;
+	}
+	catch(std::exception e)
+	{
+		std::cout <<"<"<< this->_name << "> cannot sign <" << form.getName() <<"> because <" << e.what() << ">" << std::endl ;
+	}
+}
