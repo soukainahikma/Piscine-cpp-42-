@@ -75,3 +75,18 @@ void Form::beSigned(Bureaucrat &brc)
 	else
 		_isSigned = true;
 }
+
+void Form::setTarget(const std::string &target)
+{
+	this->_target = target;
+}
+
+void Form::execute(Bureaucrat const & executor) const
+{
+	// check besigned
+		if(_isSigned == false)
+			std::cout << " " << std::endl;
+		else if (executor.getGrade() < _gradeSign)
+			std::cout << "WHAT TO DO HERE " << std::endl;
+		this->action();
+}

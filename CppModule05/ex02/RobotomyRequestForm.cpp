@@ -21,3 +21,10 @@ RobotomyRequestForm & RobotomyRequestForm::operator = (const RobotomyRequestForm
 	_isSigned = form._isSigned;
 	return(*this);
 }
+void RobotomyRequestForm::action()const
+{
+	if(rand()%100 < 50)
+		std::cout<< "<" << _target << ">" << "has been robotomized successfully !" << std::endl;
+	else
+		std::cout << "Robotomy failled !" << std::endl;
+}

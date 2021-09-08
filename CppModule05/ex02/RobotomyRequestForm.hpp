@@ -9,7 +9,7 @@ class RobotomyRequestForm:public Form
 		RobotomyRequestForm(const RobotomyRequestForm &ortho);
 		~RobotomyRequestForm();
 		RobotomyRequestForm & operator = (const RobotomyRequestForm &RobotomyRequestForm);
-		void action();
+		virtual void action()const;
 		//Action: Makes some drilling noises, and tell us that <target> has been robotomized successfully 50% of the time. Otherwise, tell us it’s a failure.
 };
 #endif

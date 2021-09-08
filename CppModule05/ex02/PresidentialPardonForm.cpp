@@ -21,3 +21,8 @@ PresidentialPardonForm & PresidentialPardonForm::operator = (const PresidentialP
 	_isSigned = form._isSigned;
 	return(*this);
 }
+
+void PresidentialPardonForm::action()const
+{
+	std::cout << "<"<< _target << "> has been pardoned by Zafod Beeblebrox." <<std::endl;
+}

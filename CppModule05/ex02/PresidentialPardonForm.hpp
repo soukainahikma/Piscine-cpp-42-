@@ -9,8 +9,8 @@ class PresidentialPardonForm:public Form
 		PresidentialPardonForm(const PresidentialPardonForm &ortho);
 		~PresidentialPardonForm();
 		PresidentialPardonForm & operator = (const PresidentialPardonForm &PresidentialPardonForm);
-		void action();
-		// member fumc action 
+		virtual void action()const;
+
 		//Action: Tells us <target> has been pardoned by Zafod Beeblebrox.
 };
 #endif

@@ -82,3 +82,16 @@ void Bureaucrat::signForm(Form &form)
 		std::cout <<"<"<< this->_name << "> cannot sign <" << form.getName() <<"> because <" << e.what() << ">" << std::endl ;
 	}
 }
+
+void Bureaucrat::executeForm(Form const & form)
+{
+	try{
+		form.execute(*this);
+		std::cout << "<" << this->_name << "> executes <"<< form.getName() << ">" << std::endl;
+	}
+	catch(std::exception e)
+	{
+		std::cout << "Error in the execution" << std::endl;
+	}
+
+}

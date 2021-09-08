@@ -11,10 +11,11 @@ class Form
 		bool _isSigned;
 		const int _gradeSign;
 		const int _gradeExec;
+		std::string _target;
 	public:
 		Form();
 		Form(const Form &ortho);
-		~Form();
+		virtual ~Form();
 		Form & operator = (const Form &form);
 		Form(const std::string name, const int gradeSign, const int _gradeExec);
 		std::string getName() const;
@@ -34,6 +35,8 @@ class Form
 				virtual const char * what () const throw ();
 		};
 		virtual void action() const = 0;
+		void setTarget(const std::string &target);
+		virtual void execute(Bureaucrat const & executor) const;
 
 };
 std::ostream & operator<<(std::ostream & o,Form const &brc);
