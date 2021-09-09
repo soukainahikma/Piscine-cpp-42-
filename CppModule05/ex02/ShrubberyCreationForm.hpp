@@ -11,6 +11,5 @@ class ShrubberyCreationForm: public Form
 		ShrubberyCreationForm & operator = (const ShrubberyCreationForm &ShrubberyCreationForm);
 		ShrubberyCreationForm(std::string target);
 		virtual void action() const;
-		//Create a file called <target>_shrubbery, and write ASCII trees inside it, in the current directory
 };
 #endif

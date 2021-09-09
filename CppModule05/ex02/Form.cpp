@@ -79,7 +79,6 @@ void Form::beSigned(Bureaucrat &brc)
 		throw Form::GradeTooLowException();
 	else
 		_isSigned = true;
-	//is already signed exception
 }
 
 void Form::setTarget(const std::string &target)
@@ -89,14 +88,12 @@ void Form::setTarget(const std::string &target)
 
 void Form::execute(Bureaucrat const & executor) const
 {
-	// check besigned
 		if(_isSigned == false){
 			std::cout << "Form " << this->getName() <<" not signed" << std::endl;
 		return;}
 		if (executor.getGrade() > _gradeExec)
 		{
-			throw Form::GradeTooHighException();
-			return;
+			throw Form::GradeTooLowException();
 		}
 		this->action();
 }

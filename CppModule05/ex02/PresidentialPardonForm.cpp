@@ -9,6 +9,7 @@ PresidentialPardonForm::PresidentialPardonForm():Form("PresidentialPardonForm",2
 PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &bcr):Form(bcr._name, bcr._gradeSign, bcr._gradeExec)
 {
 	std::cout << "**** This is the COPY CONSTRUCTOR ****" << std::endl;
+	*this = bcr;
 }
 
 PresidentialPardonForm::~PresidentialPardonForm()
@@ -19,13 +20,15 @@ PresidentialPardonForm::~PresidentialPardonForm()
 PresidentialPardonForm & PresidentialPardonForm::operator = (const PresidentialPardonForm &form)
 {
 	_isSigned = form._isSigned;
+	_target = form._target;
 	return(*this);
 }
 
 void PresidentialPardonForm::action()const
 {
-	std::cout << "<"<< this->getName() << "> has been pardoned by Zafod Beeblebrox." <<std::endl;
+	std::cout << "<"<< this->_target << "> has been pardoned by Zafod Beeblebrox." <<std::endl;
 }
-PresidentialPardonForm::PresidentialPardonForm(std::string target): Form(target, 25, 5){}
-
-// add operator << ??
+PresidentialPardonForm::PresidentialPardonForm(std::string target): Form("PresidentialPardonForm", 25, 5)
+{
+	_target = target;
+}

@@ -11,6 +11,5 @@ class RobotomyRequestForm:public Form
 		RobotomyRequestForm & operator = (const RobotomyRequestForm &RobotomyRequestForm);
 		virtual void action()const;
 		RobotomyRequestForm(std::string target);
-		//Action: Makes some drilling noises, and tell us that <target> has been robotomized successfully 50% of the time. Otherwise, tell us it’s a failure.
 };
 #endif

@@ -1,63 +1,40 @@
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
 
-int	main(void)
+int main()
 {
 	try
 	{
-		Bureaucrat person1("soukaina", 30);
-		Bureaucrat person2("hikma", 3);
+		std::cout << "_____________________________________________\n";
+		std::cout << "\t\t\e[1;37mFirst Test:\e[0m\n"; 
+		std::cout << "\t\t\e[1;37m-----------\e[0m\n"; 
+		Bureaucrat b("B1", 2);
+		Form *f = new ShrubberyCreationForm("SH1");
+		f->beSigned(b);
+		b.executeForm(*f);
+		
+		std::cout << "_____________________________________________\n";
+		std::cout << "\t\t\e[1;37mSecond Test:\e[0m\n"; 
+		std::cout << "\t\t\e[1;37m-----------\e[0m\n"; 
+		Bureaucrat b2("B2", 2);
+		Form *f2 = new RobotomyRequestForm("RB1");
+		f2->beSigned(b2);
+		b2.executeForm(*f2);
+		
+		std::cout << "_____________________________________________\n";
+		std::cout << "\t\t\e[1;37mThird Test:\e[0m\n"; 
+		std::cout << "\t\t\e[1;37m-----------\e[0m\n"; 
+		Bureaucrat b3("B3", 2);
+		Form *f3 = new PresidentialPardonForm("PRP1");
+		f3->beSigned(b3);
+		b3.executeForm(*f3);
 
-		ShrubberyCreationForm form1 = ShrubberyCreationForm("test1");
-		// RobotomyRequestForm form2 = RobotomyRequestForm("test2");
-		// PresidentialPardonForm form3 = PresidentialPardonForm("test3");
-
-		form1.beSigned(person1);
-		form1.execute(person1);
-
-		// form2.beSigned(person1);
-		// form2.execute(person1);
-// 
-		// form3.beSigned(person2);
-		// form3.execute(person2);
-
-		//will fail
-		// form3.beSigned(person1);
-		// form3.execute(person1);
 	}
-	catch (Bureaucrat::GradeTooHighException &e)
+	catch(const std::exception& e)
 	{
-		std::cout << e.what() << std::endl;
+		std::cerr << e.what() << '\n';
 	}
-	catch (Bureaucrat::GradeTooLowException &e)
-	{
-		std::cout << e.what() << std::endl;
-	}
-	catch (ShrubberyCreationForm::GradeTooHighException &e)
-	{
-		std::cout << e.what() << std::endl;
-	}
-	catch (ShrubberyCreationForm::GradeTooLowException &e)
-	{
-		std::cout << e.what() << std::endl;
-	}
-	catch (RobotomyRequestForm::GradeTooHighException &e)
-	{
-		std::cout << e.what() << std::endl;
-	}
-	catch (RobotomyRequestForm::GradeTooLowException &e)
-	{
-		std::cout << e.what() << std::endl;
-	}
-	catch (PresidentialPardonForm::GradeTooHighException &e)
-	{
-		std::cout << e.what() << std::endl;
-	}
-	catch (PresidentialPardonForm::GradeTooLowException &e)
-	{
-		std::cout << e.what() << std::endl;
-	}
+	
 }

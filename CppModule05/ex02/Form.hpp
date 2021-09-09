@@ -37,7 +37,7 @@ class Form
 		};
 		virtual void action() const = 0;
 		void setTarget(const std::string &target);
-		virtual void execute(Bureaucrat const & executor) const;
+		void execute(Bureaucrat const & executor) const;
 
 };
 std::ostream & operator<<(std::ostream & o,Form const &brc);

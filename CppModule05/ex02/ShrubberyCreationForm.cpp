@@ -9,6 +9,7 @@ ShrubberyCreationForm::ShrubberyCreationForm():Form("ShrubberyCreationForm",145,
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &bcr):Form(bcr._name, bcr._gradeSign, bcr._gradeExec)
 {
 	std::cout << "**** This is the COPY CONSTRUCTOR ****" << std::endl;
+	*this = bcr;
 }
 
 ShrubberyCreationForm::~ShrubberyCreationForm()
@@ -16,16 +17,20 @@ ShrubberyCreationForm::~ShrubberyCreationForm()
 	std::cout << "**** This is the DESTRUCTOR ****" << std::endl;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string target):Form(target,145,137){}
+ShrubberyCreationForm::ShrubberyCreationForm(std::string target):Form("ShrubberyCreationForm",145,137)
+{
+	_target = target;
+}
 
 ShrubberyCreationForm & ShrubberyCreationForm::operator = (const ShrubberyCreationForm &form)
 {
 	_isSigned = form._isSigned;
+	_target = form._target;
 	return(*this);
 }
 void ShrubberyCreationForm::action()const
 {
-	const char *namefile= "hello";
+	std::string namefile = _target + "_shrubbery";
 	std::ofstream file;
 	file.open(namefile, std::fstream::in | std::fstream::out | std::fstream::trunc);
 	file << "               ,@@@@@@@,"  << std::endl;
