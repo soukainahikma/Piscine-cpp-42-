@@ -24,7 +24,7 @@ Base * generate(void)
 			return new C;
 		default:
 		{
-			std::cout << "non of the above" << std::endl;
+			std::cout << "Not found" << std::endl;
 			return NULL;
 		}
 	}
@@ -43,14 +43,31 @@ void identify(Base* p)
 }
 void identify(Base& p)
 {
-	if(dynamic_cast<A*>(&p))
+	try{
+		A &a =  dynamic_cast<A &>(p);
 		std::cout << "A"<< std::endl;
-	else if(dynamic_cast<B*>(&p))
+		delete &a;
+	}
+	catch (std::exception &e)
+	{
+		try{
+		B &b =  dynamic_cast<B &>(p);
 		std::cout << "B"<< std::endl;
-	else if(dynamic_cast<C*>(&p))
-		std::cout << "C"<< std::endl;
-	else
-		std::cout << "Allocation failed" << std::endl;
+		delete &b;
+		}
+		catch(std::exception &e)
+		{
+			try{
+			C &c =  dynamic_cast<C &>(p);
+			std::cout << "C"<< std::endl; 
+			delete &c;
+			}
+			catch(std::exception &e)
+			{
+				std::cout << "failed cast " <<std::endl;
+			}	
+		}
+	}
 }
 
 int main()
@@ -58,9 +75,7 @@ int main()
 	Base *base;
 	base = generate();
 	identify(base);
-	sleep(1);
-	base = generate();
-	identify(base);
+	identify(*base);
 	
 	return(0);
 

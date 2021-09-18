@@ -2,7 +2,6 @@
 
 int main(int argc, char ** argv)
 {
-	std::string s(argv[1]);
 	if(argc == 2)
 	{
 		if(arg_checker(argv[1]))

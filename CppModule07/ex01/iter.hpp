@@ -2,9 +2,13 @@
 #define ITER_HPP
 #include <iostream>
 
-template <typename F>
-void iter(char *address,size_t size_,F f)
+template <typename T>
+void iter(T *array,int size_,void (func)(T const &))
 {
-	
+	for(int i = 0 ; i<size_ ;i++)
+	{
+			func(array[i]);
+	}
 }
+
 #endif

@@ -2,10 +2,11 @@
 #ifndef CONVERT_HPP
 #define CONVERT_HPP
 
-void convert_int(char *str);
-void convert_float(char *str);
-void convert_char(char *str);
-void convert_double(char *str);
-bool arg_checker(char *str);
+
+void convert_int(std::string str);
+void convert_float(std::string str);
+void convert_char(std::string str);
+void convert_double(std::string str);
+bool arg_checker(std::string str);
 
 #endif
