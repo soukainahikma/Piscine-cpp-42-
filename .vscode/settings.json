@@ -66,6 +66,10 @@
         "*.tcc": "cpp",
         "clocale": "cpp",
         "deque": "cpp",
-        "__functional_base_03": "cpp"
+        "__functional_base_03": "cpp",
+        "bit": "cpp",
+        "stack": "cpp",
+        "span": "cpp",
+        "filesystem": "cpp"
     }
 }
