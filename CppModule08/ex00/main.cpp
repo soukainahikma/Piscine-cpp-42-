@@ -4,15 +4,14 @@
 int main()
 {
 	std::vector<int> g1;
-	int x;
-		srand(time(NULL));
+
+	
 	for (int i = 0; i <= 5; i++)
 	{	
-		 x = rand() % 10;
-		 std::cout << x << " ";
-		g1.push_back(x);
+		g1.push_back(i);
+		 std::cout << i << " ";
 	}
 	std::cout << std::endl;
-	easyfind(g1,2);
+	easyfind(g1,5);
 	return 0;
 }

@@ -31,11 +31,8 @@ int main ()
 	std::cout << "---------------- testing sp2 ---------------" << std::endl;
 	try
 	{
+		sp2.addNumber(-9);
 		sp2.addNumber(0);
-		sp2.addNumber(2);
-		sp2.addNumber(5);
-		sp2.addNumber(10);
-		sp2.addNumber(11);
 	}
 	catch(std::exception &e)
 	{
@@ -67,4 +64,21 @@ int main ()
 	}
 	std::cout << "shortestSpan : " << sp3.shortestSpan() << std::endl;
 	std::cout << "longestSpan : " << sp3.longestSpan() << std::endl;
+
+
+	std::cout << "----------- testing the overload add -------------"  << std::endl;
+	std::vector<int> vec;
+	vec.push_back(-9);
+	vec.push_back(0);
+	vec.push_back(0);
+	vec.push_back(0);
+	try{
+	sp2.addNumber(vec.begin(), vec.end());}
+	catch(std::exception &e)
+	{
+		std::cout << "you have reached the limit" << std::endl;
+	}
+	std::cout << "shortestSpan : " << sp2.shortestSpan() << std::endl;
+	std::cout << "longestSpan : " << sp2.longestSpan() << std::endl;
+	sp2.spanPrinter();
 }

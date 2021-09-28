@@ -17,5 +17,14 @@ class Span{
 		int shortestSpan();
 		int longestSpan();
 		void spanPrinter();
+
+		template <typename T>
+		void addNumber(T itb,T ite)
+		{
+			if(std::distance(itb,ite) > static_cast<int>(N - arr.size()))
+				throw(std::exception());
+			else
+				arr.insert(arr.end(),itb,ite);
+		};
 };
 #endif

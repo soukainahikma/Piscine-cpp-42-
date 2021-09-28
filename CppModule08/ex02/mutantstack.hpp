@@ -16,7 +16,12 @@ class MutantStack : public std::stack<T, container>
 		typedef typename std::stack<T>::container_type::reverse_iterator reverse_iterator;
 		MutantStack(void){};
 		MutantStack(const MutantStack &a){*this = a;}
-		MutantStack & operator = (const MutantStack &a){*this = a; return(*this);}
+		MutantStack & operator = (const MutantStack &a)
+		{
+
+			std::stack<T>::operator=(a);
+			return(*this);
+		}
 		~MutantStack(void){};
 
 		iterator	begin(){return ( std::stack<T>::c.begin() );}

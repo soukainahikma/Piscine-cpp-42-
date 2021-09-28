@@ -3,7 +3,6 @@
 Span::Span()
 {
 	N = 0;
-	std::cout << "constructor default" << std::endl;
 }
 
 Span::Span(const Span &span)
